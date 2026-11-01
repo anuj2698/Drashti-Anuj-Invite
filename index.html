@@ -15,12 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=Italiana&amp;family=Noto+Sans+Gujarati:wght@300;400;500;600;700&amp;family=Noto+Serif+Devanagari:wght@400;600;700&amp;family=Noto+Serif+Gujarati:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <script>
-      try {
-        const savedLanguage = window.localStorage.getItem('invite-language');
-        if (savedLanguage === 'gu') document.documentElement.lang = 'gu';
-      } catch (error) {}
-    </script>
     <style>
       :root {
         --paper: #f8f2e8;
@@ -526,44 +520,6 @@
         text-decoration: none;
       }
       .nav-links a:hover { color: var(--saffron); }
-
-      .language-toggle {
-        position: fixed;
-        top: max(14px, env(safe-area-inset-top));
-        right: clamp(16px, 3vw, 38px);
-        z-index: 1200;
-        display: inline-flex;
-        align-items: center;
-        gap: 3px;
-        padding: 4px;
-        color: #4b2b1e;
-        background: rgba(249, 241, 226, .9);
-        border: 1px solid rgba(217, 188, 133, .62);
-        border-radius: 999px;
-        box-shadow: 0 8px 24px rgba(34, 17, 8, .18);
-        backdrop-filter: blur(12px);
-      }
-      .language-toggle button {
-        min-width: 38px;
-        min-height: 32px;
-        padding: 5px 9px;
-        border: 0;
-        border-radius: 999px;
-        color: inherit;
-        background: transparent;
-        font-size: .65rem;
-        font-weight: 700;
-        line-height: 1;
-        letter-spacing: .06em;
-        cursor: pointer;
-        transition: color .2s ease, background .2s ease, box-shadow .2s ease;
-      }
-      .language-toggle button[aria-pressed="true"] {
-        color: #fff8ec;
-        background: var(--wine);
-        box-shadow: 0 4px 12px rgba(80, 25, 39, .24);
-      }
-      .language-toggle button:focus-visible { outline: 2px solid var(--saffron); outline-offset: 2px; }
 
       .hero {
         --spot-x: 50%;
@@ -1371,12 +1327,6 @@
       }
 
       @media (max-width: 560px) {
-        .language-toggle {
-          top: max(10px, env(safe-area-inset-top));
-          right: 12px;
-          padding: 3px;
-        }
-        .language-toggle button { min-width: 34px; min-height: 29px; padding: 4px 8px; font-size: .6rem; }
         .invitation-gate {
           padding: max(18px, env(safe-area-inset-top)) 16px max(18px, env(safe-area-inset-bottom));
         }
@@ -1566,21 +1516,17 @@
     </style>
   </head>
   <body class="is-sealed theme-design-4" data-design="4" data-ganesha="dagdusheth">
-    <div class="language-toggle" role="group" aria-label="Choose invitation language" data-i18n-aria="languageToggleLabel">
-      <button type="button" data-language="en" aria-label="View in English" aria-pressed="true">EN</button>
-      <button type="button" data-language="gu" aria-label="ગુજરાતીમાં જુઓ" aria-pressed="false">ગુજરાતી</button>
-    </div>
     <div class="invitation-gate" id="invitation-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
       <div class="gate-inner">
-        <p class="gate-kicker" data-i18n="gateKicker">A little something for you</p>
-        <h1 class="gate-title" id="gate-title" data-i18n="gateTitle">You’re invited</h1>
+        <p class="gate-kicker">A little something for you</p>
+        <h1 class="gate-title" id="gate-title">You’re invited</h1>
         <div class="mail-scene">
-          <button class="envelope" id="open-invitation" type="button" aria-label="Open invitation" data-i18n-aria="openInvitationLabel" aria-describedby="gate-hint" autofocus>
+          <button class="envelope" id="open-invitation" type="button" aria-label="Open invitation" aria-describedby="gate-hint" autofocus>
             <span class="envelope-back" aria-hidden="true"></span>
             <span class="envelope-liner" aria-hidden="true"></span>
             <span class="envelope-letter" aria-hidden="true">
               <span class="letter-copy">
-                <strong data-i18n-html="coupleNames">Drashti <span class="simple-amp">&amp;</span> Anuj</strong>
+                <strong>Drashti <span class="simple-amp">&amp;</span> Anuj</strong>
                 <em>18 · 12 · 2026</em>
               </span>
               <span class="card-loader">
@@ -1592,43 +1538,43 @@
             <span class="wax-seal" aria-hidden="true"><span class="seal-copy">D <span class="simple-amp">&amp;</span> A</span></span>
           </button>
         </div>
-        <p class="gate-hint" id="gate-hint" data-i18n="gateHint">Tap the seal to open</p>
+        <p class="gate-hint" id="gate-hint">Tap the seal to open</p>
       </div>
     </div>
 
     <audio id="background-music" src="assets/audio/jashn-e-bahara.mp3" preload="metadata" loop></audio>
-    <button class="auto-scroll-notice" id="auto-scroll-notice" type="button" aria-label="Scroll down for celebration details" data-i18n-aria="scrollButtonLabel" aria-hidden="true" tabindex="-1">
-      <span data-i18n="scrollDown">Scroll Down</span>
-      <small data-i18n="celebrationDetails">For Celebration Details</small>
+    <button class="auto-scroll-notice" id="auto-scroll-notice" type="button" aria-label="Scroll down for celebration details" aria-hidden="true" tabindex="-1">
+      <span>Scroll Down</span>
+      <small>For Celebration Details</small>
       <i aria-hidden="true"></i>
     </button>
 
-    <nav class="nav" aria-label="Primary navigation" data-i18n-aria="primaryNavigationLabel">
-      <a class="monogram" href="#home" aria-label="Drashti and Anuj, home" data-i18n-aria="homeLabel">D <span class="simple-amp">&amp;</span> A</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="monogram" href="#home" aria-label="Drashti and Anuj, home">D <span class="simple-amp">&amp;</span> A</a>
       <div class="nav-links">
-        <a href="#story" data-i18n="navStory">Our story</a>
-        <a href="#events" data-i18n="navReception">Reception</a>
-        <a href="#venue" data-i18n="navVenue">Venue</a>
+        <a href="#story">Our story</a>
+        <a href="#events">Reception</a>
+        <a href="#venue">Venue</a>
       </div>
     </nav>
 
-    <section class="blessing" id="home" aria-label="Divine blessings" data-i18n-aria="blessingsLabel">
-      <article class="blessing-panel blessing-ganesha" aria-label="Lord Ganesha blessing" data-i18n-aria="ganeshaBlessingLabel">
+    <section class="blessing" id="home" aria-label="Divine blessings">
+      <article class="blessing-panel blessing-ganesha" aria-label="Lord Ganesha blessing">
         <img class="blessing-image" src="assets/blessing-ganesha-dagdusheth-v2.png" alt="" aria-hidden="true" />
         <div class="blessing-panel-content">
-          <h2 class="blessing-devanagari" data-i18n="ganeshaPrayerScript">॥ श्री गणेशाय नमः ॥</h2>
-          <p class="blessing-translit" data-i18n="ganeshaPrayer">Shri Ganeshay Namah</p>
+          <h2 class="blessing-devanagari">॥ श्री गणेशाय नमः ॥</h2>
+          <p class="blessing-translit">Shri Ganeshay Namah</p>
         </div>
       </article>
-      <article class="blessing-panel blessing-mahavir" aria-label="Bhagwan Mahavir Swami blessing" data-i18n-aria="mahavirBlessingLabel">
+      <article class="blessing-panel blessing-mahavir" aria-label="Bhagwan Mahavir Swami blessing">
         <img class="blessing-image" src="assets/blessing-mahavir-ornate.png" alt="" aria-hidden="true" />
         <div class="blessing-panel-content">
-          <h2 class="blessing-devanagari" data-i18n="mahavirPrayerScript">॥ श्री महावीर स्वामी नमः ॥</h2>
-          <p class="blessing-translit" data-i18n="mahavirPrayer">Shri Mahavir Swami Namah</p>
+          <h2 class="blessing-devanagari">॥ श्री महावीर स्वामी नमः ॥</h2>
+          <p class="blessing-translit">Shri Mahavir Swami Namah</p>
         </div>
       </article>
       <div class="blessing-center">
-        <h1 id="blessing-title" tabindex="-1" data-i18n="jaiJinendra">Jai Jinendra</h1>
+        <h1 id="blessing-title" tabindex="-1">Jai Jinendra</h1>
       </div>
     </section>
 
@@ -1668,34 +1614,34 @@
       </svg>
       <div class="hero-content reveal">
         <div class="hero-intro">
-          <p class="reception-invite" data-i18n-html="heroInvite">With the blessings of<br /><span class="blessing-names">Visal Mata<span class="blessing-join">and</span>Mamal Mata,</span><br /><br />We invite you to celebrate<br />the wedding reception of</p>
+          <p class="reception-invite">With the blessings of<br /><span class="blessing-names">Visal Mata<span class="blessing-join">and</span>Mamal Mata,</span><br /><br />We invite you to celebrate<br />the wedding reception of</p>
         </div>
         <h1 id="couple-names" tabindex="-1">
           <span class="name-group">
-            <span class="name" data-i18n="brideName">Drashti</span>
+            <span class="name">Drashti</span>
             <small class="parentage">
-              <span class="parent-line" data-i18n="daughterOf">D/O: Meena Tinesh Gala [Luni]</span>
+              <span class="parent-line">D/O: Meena Tinesh Gala [Luni]</span>
               <span class="grandparentage">
-                <span class="grandparent-relation" data-i18n="granddaughterOf">Granddaughter of</span>
-                <span class="grandparent-name" data-i18n="brideGrandmotherOne">Gangaben Shantilal Gala [Luni]</span>
-                <span class="grandparent-name" data-i18n="brideGrandmotherTwo">Javerben Hirji Dharod [Wadala]</span>
+                <span class="grandparent-relation">Granddaughter of</span>
+                <span class="grandparent-name">Gangaben Shantilal Gala [Luni]</span>
+                <span class="grandparent-name">Javerben Hirji Dharod [Wadala]</span>
               </span>
             </small>
           </span>
           <span class="amp">&amp;</span><br class="gu-name-break" />
           <span class="name-group">
-            <span class="name" data-i18n="groomName">Anuj</span>
+            <span class="name">Anuj</span>
             <small class="parentage">
-              <span class="parent-line" data-i18n="sonOf">S/O: Preeti Gajesh Dedhia [Bhujpur]</span>
+              <span class="parent-line">S/O: Preeti Gajesh Dedhia [Bhujpur]</span>
               <span class="grandparentage">
-                <span class="grandparent-relation" data-i18n="grandsonOf">Grandson of</span>
-                <span class="grandparent-name" data-i18n="groomGrandmotherOne">Bhanumati Rayshi Dedhia [Bhujpur]</span>
-                <span class="grandparent-name" data-i18n="groomGrandmotherTwo">Sushila Dhirajlal Shah [Kodai]</span>
+                <span class="grandparent-relation">Grandson of</span>
+                <span class="grandparent-name">Bhanumati Rayshi Dedhia [Bhujpur]</span>
+                <span class="grandparent-name">Sushila Dhirajlal Shah [Kodai]</span>
               </span>
             </small>
           </span>
         </h1>
-        <p class="reception-on" data-i18n="onLabel">On</p>
+        <p class="reception-on">On</p>
         <div class="hero-date"><span>18th December 2026</span><span>Mumbai, Maharashtra</span></div>
       </div>
     </header>
@@ -1705,9 +1651,9 @@
         <div class="welcome">
           <div class="welcome-copy reveal">
             <p class="section-tag" data-i18n="chapterOne">Chapter one · Where it all began</p>
-            <h2 class="display" data-i18n="storyTitle">We found home in each other.</h2>
-            <p data-i18n="storyBody">From an unexpected hello to a thousand shared adventures, our story has led us here. With full hearts, we invite you to celebrate as we begin our forever, surrounded by the people who mean the most to us.</p>
-            <p class="signature"><span class="signature-label" data-i18n="withLove">With love,</span><span class="signature-names" data-i18n-html="coupleNames">Drashti <span class="simple-amp">&amp;</span> Anuj</span></p>
+            <h2 class="display">We found home in each other.</h2>
+            <p>From an unexpected hello to a thousand shared adventures, our story has led us here. With full hearts, we invite you to celebrate as we begin our forever, surrounded by the people who mean the most to us.</p>
+            <p class="signature"><span class="signature-label">With love,</span><span class="signature-names">Drashti <span class="simple-amp">&amp;</span> Anuj</span></p>
           </div>
           <div class="personality-card personality-card-us reveal">
             <img src="assets/us-1.jpeg" alt="Drashti and Anuj surrounded by a travel, motorcycle, photography, art, and shared-memories collage" />
@@ -1719,22 +1665,22 @@
         <div class="journey-head reveal">
           <div>
             <p class="section-tag" data-i18n="chapterTwo">Chapter two · The journey</p>
-            <h2 class="display" data-i18n-html="journeyTitle">Moments that<br />brought us here.</h2>
+            <h2 class="display">Moments that<br />brought us here.</h2>
           </div>
-          <p data-i18n="journeyBody">A collection of shared laughs, winding roads, and little moments from the story that brought us to forever.</p>
+          <p>A collection of shared laughs, winding roads, and little moments from the story that brought us to forever.</p>
         </div>
         <div class="gallery-swipe-cue" aria-hidden="true">
-          <span class="gallery-swipe-label"><span data-i18n="swipeExplore">Swipe to explore</span> <span class="gallery-swipe-arrow">↔</span></span>
+          <span class="gallery-swipe-label"><span>Swipe to explore</span> <span class="gallery-swipe-arrow">↔</span></span>
           <span class="gallery-dots"><span class="gallery-dot is-active"></span><span class="gallery-dot"></span><span class="gallery-dot"></span></span>
         </div>
-        <div class="journey-gallery gallery-three" aria-label="Our memories photo gallery" data-i18n-aria="galleryLabel">
-          <div class="gallery-set gallery-set-single" role="group" aria-label="Kedarnath memory" data-i18n-aria="kedarnathMemoryLabel">
+        <div class="journey-gallery gallery-three" aria-label="Our memories photo gallery">
+          <div class="gallery-set gallery-set-single" role="group" aria-label="Kedarnath memory">
             <figure class="gallery-photo reveal"><img src="assets/memories/Kedarnath.jpeg" alt="Drashti and Anuj at Kedarnath" loading="lazy" decoding="async" /><figcaption>Kedarnath</figcaption></figure>
           </div>
-          <div class="gallery-set gallery-set-single" role="group" aria-label="Leh memory" data-i18n-aria="lehMemoryLabel">
+          <div class="gallery-set gallery-set-single" role="group" aria-label="Leh memory">
             <figure class="gallery-photo reveal"><img src="assets/memories/Leh.jpeg" alt="Drashti and Anuj in Leh" loading="lazy" decoding="async" /><figcaption>Leh</figcaption></figure>
           </div>
-          <div class="gallery-set gallery-set-single" role="group" aria-label="Marines memory" data-i18n-aria="marinesMemoryLabel">
+          <div class="gallery-set gallery-set-single" role="group" aria-label="Marines memory">
             <figure class="gallery-photo reveal"><img src="assets/memories/Marines.jpeg" alt="Drashti and Anuj at Marine Drive" loading="lazy" decoding="async" /><figcaption>Marines</figcaption></figure>
           </div>
         </div>
@@ -1742,254 +1688,52 @@
 
       <section class="section events" id="events">
         <div class="events-head reveal">
-          <div><p class="section-tag" data-i18n="chapterThree">Chapter three · Our forever begins</p><h2 class="display" data-i18n-html="foreverTitle">The beginning of us,<br />forever.</h2></div>
-          <p data-i18n="foreverBody">Please join us for an evening of love, laughter, and celebration as we begin our new chapter together.</p>
+          <div><p class="section-tag" data-i18n="chapterThree">Chapter three · Our forever begins</p><h2 class="display">The beginning of us,<br />forever.</h2></div>
+          <p>Please join us for an evening of love, laughter, and celebration as we begin our new chapter together.</p>
         </div>
         <div class="event-list">
           <article class="event-row reveal">
-            <span class="event-number">01</span><div class="event-name" data-i18n="receptionName">Wedding Reception</div>
-            <div class="event-meta" data-i18n-html="eventMeta">18th December 2026 · 5:30 PM onwards<br />Sheetal Banquets, Mumbai</div><div class="event-icon" aria-hidden="true">✦</div>
+            <span class="event-number">01</span><div class="event-name">Wedding Reception</div>
+            <div class="event-meta">18th December 2026 · 5:30 PM onwards<br />Sheetal Banquets, Mumbai</div><div class="event-icon" aria-hidden="true">✦</div>
           </article>
         </div>
       </section>
 
       <section class="venue" id="venue">
         <div class="venue-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4224.737386138243!2d72.8339646!3d19.177418799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6f6a34c7f85%3A0xda355ccec21d7561!2sSheetal%20Banquets!5e1!3m2!1sen!2sin!4v1792396201501!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map showing Sheetal Banquets in Malad, Mumbai" data-i18n-title="mapTitle"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4224.737386138243!2d72.8339646!3d19.177418799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6f6a34c7f85%3A0xda355ccec21d7561!2sSheetal%20Banquets!5e1!3m2!1sen!2sin!4v1792396201501!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Map showing Sheetal Banquets in Malad, Mumbai"></iframe>
         </div>
         <div class="venue-copy reveal">
-          <p class="section-tag" data-i18n="venueTag">The venue · Where to be</p>
+          <p class="section-tag">The venue · Where to be</p>
           <h2 class="display">Sheetal Banquets</h2>
           <address>Chincholi Bunder Extn Rd<br />Above Beyond Restaurant<br />Malad West, Mindspace, <br />Mumbai, Maharashtra 400064</address>
-          <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Sheetal+Banquets+Malad+Mumbai" target="_blank" rel="noreferrer"><span data-i18n="openMaps">Open in maps</span> <span>↗</span></a>
+          <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Sheetal+Banquets+Malad+Mumbai" target="_blank" rel="noreferrer"><span>Open in maps</span> <span>↗</span></a>
         </div>
       </section>
 
       <section class="section">
         <div class="details">
-          <div class="details-head reveal"><p class="section-tag" data-i18n="goodToKnow">Good to know</p><h2 class="display" data-i18n="detailsTitle">A few little details.</h2></div>
+          <div class="details-head reveal"><p class="section-tag">Good to know</p><h2 class="display">A few little details.</h2></div>
           <div class="detail-grid">
-            <article class="detail-card reveal"><span class="num">01</span><h3 data-i18n="joinTitle">Join us from 5:30</h3><p data-i18n="joinBody">The Wedding Reception begins at 5:30 PM and the celebrations continue through the evening.</p></article>
-            <article class="detail-card reveal"><span class="num">02</span><h3 data-i18n="valetTitle">Valet Parking Available</h3><p data-i18n="valetBody">Valet parking will be available at the venue for your convenience.</p></article>
-            <article class="detail-card reveal"><span class="num">03</span><h3 data-i18n="presenceTitle">Your presence</h3><p data-i18n-html="presenceBody">Your love and blessings are the only gifts we wish for. <span class="no-gifts">No other gifts will be accepted.</span></p></article>
-            <article class="detail-card reveal"><span class="num">04</span><h3 data-i18n="choviarTitle">Choviar Facility</h3><p data-i18n="choviarBody">Choviar will be available at the venue from 6:00 PM for guests who prefer to dine early.</p></article>
+            <article class="detail-card reveal"><span class="num">01</span><h3>Join us from 5:30</h3><p>The Wedding Reception begins at 5:30 PM and the celebrations continue through the evening.</p></article>
+            <article class="detail-card reveal"><span class="num">02</span><h3>Valet Parking Available</h3><p>Valet parking will be available at the venue for your convenience.</p></article>
+            <article class="detail-card reveal"><span class="num">03</span><h3>Your presence</h3><p>Your love and blessings are the only gifts we wish for. <span class="no-gifts">No other gifts will be accepted.</span></p></article>
+            <article class="detail-card reveal"><span class="num">04</span><h3>Choviar Facility</h3><p>Choviar will be available at the venue from 6:00 PM for guests who prefer to dine early.</p></article>
           </div>
-          <div class="countdown" aria-label="Countdown to the wedding reception" data-i18n-aria="countdownLabel">
-            <div class="count-item"><strong id="days">—</strong><span data-i18n="days">Days</span></div>
-            <div class="count-item"><strong id="hours">—</strong><span data-i18n="hours">Hours</span></div>
-            <div class="count-item"><strong id="minutes">—</strong><span data-i18n="minutes">Minutes</span></div>
-            <div class="count-item"><strong id="seconds">—</strong><span data-i18n="seconds">Seconds</span></div>
+          <div class="countdown" aria-label="Countdown to the wedding reception">
+            <div class="count-item"><strong id="days">—</strong><span>Days</span></div>
+            <div class="count-item"><strong id="hours">—</strong><span>Hours</span></div>
+            <div class="count-item"><strong id="minutes">—</strong><span>Minutes</span></div>
+            <div class="count-item"><strong id="seconds">—</strong><span>Seconds</span></div>
           </div>
         </div>
       </section>
 
     </main>
 
-    <footer><p data-i18n="footerAwaiting">Awaiting your joyous presence</p><p class="footer-honorees" data-i18n-html="footerHonorees">Prisha Heena Hardik Gala</p><p class="footer-along" data-i18n="footerAlong">along with</p><div class="footer-names" data-i18n-html="footerFamilyNames">Gala <span class="simple-amp">&amp;</span> Dedhia</div><p class="footer-family" data-i18n="family">Family</p><p>18 · 12 · 2026 — Mumbai</p></footer>
+    <footer><p>Awaiting your joyous presence</p><p class="footer-honorees">Prisha Heena Hardik Gala</p><p class="footer-along">along with</p><div class="footer-names">Gala <span class="simple-amp">&amp;</span> Dedhia</div><p class="footer-family">Family</p><p>18 · 12 · 2026 — Mumbai</p></footer>
 
     <script>
-      const invitationTranslations = {
-        en: {
-          pageTitle: 'Drashti & Anuj — Reception Invitation',
-          metaDescription: 'You are warmly invited to celebrate the wedding reception of Drashti and Anuj on 18 December 2026 at Sheetal Banquets, Mumbai.',
-          languageToggleLabel: 'Choose invitation language',
-          languageEnglishLabel: 'View in English',
-          languageGujaratiLabel: 'View in Gujarati',
-          gateKicker: 'A little something for you',
-          gateTitle: 'You’re invited',
-          gateHint: 'Tap the seal to open',
-          openInvitationLabel: 'Open invitation',
-          scrollButtonLabel: 'Scroll down for celebration details',
-          scrollDown: 'Scroll Down',
-          celebrationDetails: 'For Celebration Details',
-          primaryNavigationLabel: 'Primary navigation',
-          homeLabel: 'Drashti and Anuj, home',
-          coupleNames: 'Drashti <span class="simple-amp">&amp;</span> Anuj',
-          groomName: 'Anuj',
-          brideName: 'Drashti',
-          navStory: 'Our story',
-          navReception: 'Reception',
-          navVenue: 'Venue',
-          blessingsLabel: 'Divine blessings',
-          ganeshaBlessingLabel: 'Lord Ganesha blessing',
-          mahavirBlessingLabel: 'Bhagwan Mahavir Swami blessing',
-          ganeshaPrayerScript: '॥ श्री गणेशाय नमः ॥',
-          ganeshaPrayer: 'Shri Ganeshay Namah',
-          mahavirPrayerScript: '॥ श्री महावीर स्वामी नमः ॥',
-          mahavirPrayer: 'Shri Mahavir Swami Namah',
-          jaiJinendra: 'Jai Jinendra',
-          heroInvite: 'With the blessings of<br /><span class="blessing-names">Visal Mata<span class="blessing-join">and</span>Mamal Mata,</span><br /><br />We invite you to celebrate<br />the wedding reception of',
-          sonOf: 'S/O: Preeti Gajesh Dedhia [Bhujpur]',
-          grandsonOf: 'Grandson of',
-          groomGrandmotherOne: 'Bhanumati Rayshi Dedhia [Bhujpur]',
-          groomGrandmotherTwo: 'Sushila Dhirajlal Shah [Kodai]',
-          daughterOf: 'D/O: Meena Tinesh Gala [Luni]',
-          granddaughterOf: 'Granddaughter of',
-          brideGrandmotherOne: 'Gangaben Shantilal Gala [Luni]',
-          brideGrandmotherTwo: 'Javerben Hirji Dharod [Wadala]',
-          onLabel: 'On',
-          chapterOne: 'Chapter one · Where it all began',
-          storyTitle: 'We found home in each other.',
-          storyBody: 'From an unexpected hello to a thousand shared adventures, our story has led us here. With full hearts, we invite you to celebrate as we begin our forever, surrounded by the people who mean the most to us.',
-          withLove: 'With love,',
-          chapterTwo: 'Chapter two · The journey',
-          journeyTitle: 'Moments that<br />brought us here.',
-          journeyBody: 'A collection of shared laughs, winding roads, and little moments from the story that brought us to forever.',
-          swipeExplore: 'Swipe to explore',
-          galleryLabel: 'Our memories photo gallery',
-          kedarnathMemoryLabel: 'Kedarnath memory',
-          lehMemoryLabel: 'Leh memory',
-          marinesMemoryLabel: 'Marines memory',
-          chapterThree: 'Chapter three · Our forever begins',
-          foreverTitle: 'The beginning of us,<br />forever.',
-          foreverBody: 'Please join us for an evening of love, laughter, and celebration as we begin our new chapter together.',
-          receptionName: 'Wedding Reception',
-          eventMeta: '18th December 2026 · 5:30 PM onwards<br />Sheetal Banquets, Mumbai',
-          mapTitle: 'Map showing Sheetal Banquets in Malad, Mumbai',
-          venueTag: 'The venue · Where to be',
-          openMaps: 'Open in maps',
-          goodToKnow: 'Good to know',
-          detailsTitle: 'A few little details.',
-          joinTitle: 'Join us from 5:30',
-          joinBody: 'The Wedding Reception begins at 5:30 PM and the celebrations continue through the evening.',
-          valetTitle: 'Valet Parking Available',
-          valetBody: 'Valet parking will be available at the venue for your convenience.',
-          presenceTitle: 'Your presence',
-          presenceBody: 'Your love and blessings are the only gifts we wish for. <span class="no-gifts">No other gifts will be accepted.</span>',
-          choviarTitle: 'Choviar Facility',
-          choviarBody: 'Choviar will be available at the venue from 6:00 PM for guests who prefer to dine early.',
-          countdownLabel: 'Countdown to the wedding reception',
-          days: 'Days',
-          hours: 'Hours',
-          minutes: 'Minutes',
-          seconds: 'Seconds',
-          footerAwaiting: 'Awaiting your joyous presence',
-          footerHonorees: 'Prisha Heena Hardik Gala',
-          footerAlong: 'along with',
-          footerFamilyNames: 'Gala <span class="simple-amp">&amp;</span> Dedhia',
-          family: 'Family'
-        },
-        gu: {
-          pageTitle: 'Drashti & Anuj — Reception Invitation',
-          metaDescription: 'દૃષ્ટિ અને અનુજના 18 December 2026ના રોજ Sheetal Banquets, Mumbai ખાતે યોજાનારા રિસેપ્શનની ઉજવણીમાં આપનું હાર્દિક આમંત્રણ છે.',
-          languageToggleLabel: 'આમંત્રણની ભાષા પસંદ કરો',
-          languageEnglishLabel: 'અંગ્રેજીમાં જુઓ',
-          languageGujaratiLabel: 'ગુજરાતીમાં જુઓ',
-          gateKicker: 'તમારા માટે એક નાનકડી ભેટ',
-          gateTitle: 'ભાવભીનું આમંત્રણ',
-          gateHint: 'ખોલવા માટે મુદ્રા પર ટૅપ કરો',
-          openInvitationLabel: 'આમંત્રણ ખોલો',
-          scrollButtonLabel: 'ઉજવણીની વિગતો માટે નીચે સ્ક્રોલ કરો',
-          scrollDown: 'નીચે સ્ક્રોલ કરો',
-          celebrationDetails: 'ઉજવણીની વિગતો માટે',
-          primaryNavigationLabel: 'મુખ્ય નેવિગેશન',
-          homeLabel: 'દૃષ્ટિ અને અનુજ, મુખ્ય પૃષ્ઠ',
-          coupleNames: 'દૃષ્ટિ <span class="simple-amp">&amp;</span> અનુજ',
-          groomName: 'અનુજ',
-          brideName: 'દૃષ્ટિ',
-          navStory: 'અમારી વાર્તા',
-          navReception: 'રિસેપ્શન',
-          navVenue: 'સ્થળ',
-          blessingsLabel: 'દિવ્ય આશીર્વાદ',
-          ganeshaBlessingLabel: 'શ્રી ગણેશજીના આશીર્વાદ',
-          mahavirBlessingLabel: 'ભગવાન મહાવીર સ્વામીના આશીર્વાદ',
-          ganeshaPrayerScript: '॥ श्री गणेशाय नमः ॥',
-          ganeshaPrayer: 'શ્રી ગણેશાય નમઃ',
-          mahavirPrayerScript: '॥ श्री महावीर स्वामी नमः ॥',
-          mahavirPrayer: 'શ્રી મહાવીર સ્વામી નમઃ',
-          jaiJinendra: 'જય જિનેન્દ્ર',
-          heroInvite: '<span class="blessing-names">વિશલ માતા<span class="blessing-join">અને</span>મામલ માતા</span><br />ની અસિમ કૃપા થી,<br />તમને',
-          sonOf: 'સુપુત્ર: પ્રીતિ ગજેશ દેઢિયા [ભુજપુર]',
-          grandsonOf: 'પૌત્ર',
-          groomGrandmotherOne: 'ભાનુમતી રાયશી દેઢિયા [ભુજપુર]',
-          groomGrandmotherTwo: 'સુશીલા ધીરજલાલ શાહ [કોડાય]',
-          daughterOf: 'સુપુત્રી: મીના ટીનેશ ગાલા [લુણી]',
-          granddaughterOf: 'પૌત્રી',
-          brideGrandmotherOne: 'ગંગાબેન શાંતીલાલ ગાલા [લુણી]',
-          brideGrandmotherTwo: 'જવેરબેન હીરજી ધરોડ [વડાલા]',
-          onLabel: 'ના લગ્નના રિસેપ્શન માટે આમંત્રિત કરીએ છીએ',
-          chapterOne: '',
-          storyTitle: 'નવી શરૂવાત',
-          storyBody: 'અમારા જીવનના આ નવા અધ્યાયની શરૂઆત કરતી વખતે, અમે તમને આ ઉજવણીમાં સામેલ થવા માટે હૃદયપૂર્વક આમંત્રિત કરીએ છીએ',
-          withLove: 'સ્નેહ સાથે,',
-          chapterTwo: '',
-          journeyTitle: 'એ ક્ષણો<br />જે અમને અહીં સુધી લાવી.',
-          journeyBody: 'સહિયારા હાસ્ય, વળાંકદાર રસ્તાઓ અને નાનકડી યાદોની એક ઝલક—જે અમારી વાર્તાને સદાકાળ સુધી લઈ આવી.',
-          swipeExplore: 'યાદો જોવા સ્વાઇપ કરો',
-          galleryLabel: 'અમારી યાદોની ફોટો ગેલેરી',
-          kedarnathMemoryLabel: 'Kedarnathની યાદ',
-          lehMemoryLabel: 'Lehની યાદ',
-          marinesMemoryLabel: 'Marinesની યાદ',
-          chapterThree: '',
-          foreverTitle: 'અમારી શરૂઆત,<br />તમારી સાથે',
-          foreverBody: 'પ્રેમ, હાસ્ય અને આનંદથી ભરેલી એક સાંજ માટે અમારી સાથે જોડાઓ, જ્યારે અમે અમારા નવા પ્રકરણની શરૂઆત કરીએ છીએ.',
-          receptionName: 'સ્વાગત સમારોહ',
-          eventMeta: '18th December 2026 · 5:30 PM <br />Sheetal Banquets, Mumbai',
-          mapTitle: 'Malad, Mumbaiમાં Sheetal Banquets દર્શાવતો નકશો',
-          venueTag: 'સ્થળ',
-          openMaps: 'નકશામાં ખોલો',
-          goodToKnow: '',
-          detailsTitle: 'થોડી નાની વિગતો.',
-          joinTitle: '5:30 થી અમારી સાથે જોડાઓ',
-          joinBody: 'રિસેપ્શન 5:30 PM વાગ્યે શરૂ થશે ',
-          valetTitle: 'વેલે પાર્કિંગ ઉપલબ્ધ',
-          valetBody: 'આપની સુવિધા માટે સ્થળ પર વેલે પાર્કિંગ ઉપલબ્ધ રહેશે.',
-          presenceTitle: 'આપની હાજરી',
-          presenceBody: 'આપનો પ્રેમ અને આશીર્વાદ જ અમારા માટે શ્રેષ્ઠ ભેટ છે. <span class="no-gifts">અન્ય કોઈ ભેટ ન સ્વીકારવા માટે ક્ષમાયાર્થી છીએ</span>',
-          choviarTitle: 'ચોવિયાર સુવિધા',
-          choviarBody: '6:00 PM થી ચૌવિહારની સુવિધા ઉપલબ્ધ રહેશે.',
-          countdownLabel: 'રિસેપ્શન માટેનું કાઉન્ટડાઉન',
-          days: 'દિવસ',
-          hours: 'કલાક',
-          minutes: 'મિનિટ',
-          seconds: 'સેકન્ડ',
-          footerAwaiting: 'આપની આનંદમય હાજરીની આતુરતાથી રાહ જોઈ રહ્યા છીએ',
-          footerHonorees: 'પ્રિશા હીના હાર્દિક ગાલા',
-          footerAlong: 'ની સાથે',
-          footerFamilyNames: 'ગાલા <span class="simple-amp">&amp;</span> દેઢિયા',
-          family: 'પરિવાર'
-        }
-      };
-
-      const languageButtons = Array.from(document.querySelectorAll('[data-language]'));
-      const descriptionMeta = document.querySelector('meta[name="description"]');
-      const applyInvitationLanguage = (requestedLanguage, persist = true) => {
-        const language = requestedLanguage === 'gu' ? 'gu' : 'en';
-        const copy = invitationTranslations[language];
-        document.documentElement.lang = language;
-        document.title = copy.pageTitle;
-        if (descriptionMeta) descriptionMeta.content = copy.metaDescription;
-        document.querySelectorAll('[data-i18n]').forEach((element) => {
-          const value = copy[element.dataset.i18n];
-          if (value !== undefined) element.textContent = value;
-        });
-        document.querySelectorAll('[data-i18n-html]').forEach((element) => {
-          const value = copy[element.dataset.i18nHtml];
-          if (value !== undefined) element.innerHTML = value;
-        });
-        document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
-          const value = copy[element.dataset.i18nAria];
-          if (value !== undefined) element.setAttribute('aria-label', value);
-        });
-        document.querySelectorAll('[data-i18n-title]').forEach((element) => {
-          const value = copy[element.dataset.i18nTitle];
-          if (value !== undefined) element.setAttribute('title', value);
-        });
-        languageButtons.forEach((button) => {
-          const isActive = button.dataset.language === language;
-          button.setAttribute('aria-pressed', String(isActive));
-          button.setAttribute('aria-label', button.dataset.language === 'en' ? copy.languageEnglishLabel : copy.languageGujaratiLabel);
-        });
-        if (persist) {
-          try { window.localStorage.setItem('invite-language', language); } catch (error) {}
-        }
-      };
-
-      languageButtons.forEach((button) => {
-        button.addEventListener('click', () => applyInvitationLanguage(button.dataset.language));
-      });
-      applyInvitationLanguage(document.documentElement.lang === 'gu' ? 'gu' : 'en', false);
-
       const gate = document.getElementById('invitation-gate');
       const openButton = document.getElementById('open-invitation');
       const backgroundMusic = document.getElementById('background-music');
